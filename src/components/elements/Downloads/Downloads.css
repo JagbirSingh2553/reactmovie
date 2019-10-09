@@ -1,0 +1,23 @@
+.rmdb-Downloads {
+    background: #1688d4;
+    width: 100px;
+    min-height: 10px;
+    text-align: center;
+    color: #fff;
+    float:"left";
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  button{
+            float: right;
+            grid-column: auto;
+  }
+  .rmdb-Downloads p {
+    font-family: 'Abel', sans-serif;
+    font-size:32px;
+    padding: 20px;
+  }
+  
+  .rmdb-Downloads:hover {
+    opacity: 0.8;
+  }

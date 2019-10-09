@@ -47,8 +47,6 @@ class Home extends Component {
     loadMoreItems = () => {
         let endpoint = '';
         this.setState({ loading: true });
-        console.log("jack");
-
         if (this.state.searchTerm === '') {
             endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=3e64e4a38d89ca3881653cf1be2a7c0d&language=en-US&page=${this.state.currentPage+1}`;
             
@@ -66,7 +64,7 @@ class Home extends Component {
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 this.setState({
                     movies: [...this.state.movies, ...result.results],
                     heroImage: this.state.heroImage || result.results[0],

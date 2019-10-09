@@ -34,29 +34,34 @@ class Home extends Component {
         })
         if (searchTerm === '') {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        
         }
         else {
-            endpoint = `${API_URL}search/movie?api_keys=${API_KEY}&language=en-US&query=${searchTerm}`;
+            // endpoint = `${API_URL}search/movie?api_keys=${API_KEY}&language=en-US&query=${searchTerm}`;
+            endpoint = `https://api.themoviedb.org/3/search/movie?api_key=3e64e4a38d89ca3881653cf1be2a7c0d&query=${searchTerm}`;
 
         }
-        this.fetchItems(endpoint);
+        this.fetchItems(endpoint); 
     }
 
     loadMoreItems = () => {
         let endpoint = '';
         this.setState({ loading: true });
+        console.log("jack");
 
         if (this.state.searchTerm === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
+            endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=3e64e4a38d89ca3881653cf1be2a7c0d&language=en-US&page=${this.state.currentPage+1}`;
+            
         }
         else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${this.state.searchTerm}&page=${this.state.currentPage + 1}`;
+            endpoint = `https://api.themoviedb.org/3/search/movie?api_key=3e64e4a38d89ca3881653cf1be2a7c0d&query=${this.state.searchTerm}&page=${this.state.currentPage+1}`;
 
         }
         this.fetchItems(endpoint);
 
     }
 
+    
     fetchItems = (endpoint) => {
         fetch(endpoint)
             .then(result => result.json())
@@ -67,7 +72,7 @@ class Home extends Component {
                     heroImage: this.state.heroImage || result.results[0],
                     loading: false,
                     currentPage: result.page,
-                    totalPages: result.total_Pages
+                    totalPages: result.total_pages
                 })
             })
     }
@@ -99,8 +104,8 @@ class Home extends Component {
                         })}
                     </FourColGrid>
                     {this.state.loading ? <Spinner /> : null}
-                    {(this.state.currentPage <= this.state.totalPages && !this.state.loading)} 
-                    <LoadMoreBtn text="Load More" onclick={this.loadMoreItems} />
+                    {(this.state.currentPage <= this.state.totalPages && !this.state.loading)?
+                    <LoadMoreBtn text="Load More" onClick={this.loadMoreItems} />
                     :null }
                     </div>
             </div>

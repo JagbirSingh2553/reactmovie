@@ -1,7 +1,7 @@
 .rmdb-grid h1 {
   font-family: 'Abel', sans-serif;
   font-size:42px;
-  text-decoration-color: white;
+  color: white;
 }
 
 .rmdb-grid-content {
@@ -10,11 +10,12 @@
   grid-column-gap: 40px;
   grid-row-gap: 40px;
   background: #1c1c1c;
+  transition-duration: inherit;
 
 }
 
 .rmdb-grid-element {
-  text-decoration-color: white;
+  /* text-decoration-color: white; */
 background:#1c1c1c;
   /* background: #353535; */
   max-height: 430px;

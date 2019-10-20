@@ -3,10 +3,10 @@ import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../../config';
 import FontAwesome from 'react-fontawesome';
 import MovieThumb from '../MovieThumb/MovieThumb';
 import Downloads from '../Downloads/Download';
-import { Link } from 'react-router-dom';
 import './MovieInfo.css';
 
 const MovieInfo = (props) => {
+    
     return (
         <div className="rmdb-movieinfo"
             style={{
@@ -32,15 +32,15 @@ const MovieInfo = (props) => {
                     {props.directors.map((element, i) => {
                         return <p key={i} className="rmdb-director">{element.name}</p>
                     })}
-
-                    <Link to="https://1337xto.to/">
-                        <Downloads type="Button" value={props.text}/>
-                    </Link>
-                </div>
+                        <Downloads text="Download" onClick={props.text}
+                              let link = {`https://kickasstorrents.to/usearch/${props.movie.title}/`}/>
+                        
+                        </div>
             </div>
             <FontAwesome className="fa-film" name="film" size="5x" />
         </div>
     )
+    
 }
 
 export default MovieInfo;

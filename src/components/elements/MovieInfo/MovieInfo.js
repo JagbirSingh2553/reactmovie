@@ -2,7 +2,8 @@ import React from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../../config';
 import FontAwesome from 'react-fontawesome';
 import MovieThumb from '../MovieThumb/MovieThumb';
-import Downloads from '../Downloads/Download';
+// import Downloads from '../Downloads/Download';
+import Video from '../Video/Video';
 import './MovieInfo.css';
 
 const MovieInfo = (props) => {
@@ -32,10 +33,11 @@ const MovieInfo = (props) => {
                     {props.directors.map((element, i) => {
                         return <p key={i} className="rmdb-director">{element.name}</p>
                     })}
-                        <Downloads text="Download" onClick={props.text}
-                              let link = {`https://kickasstorrents.to/usearch/${props.movie.title}/`}/>
-                        
+                        {/* <Downloads text="Download" onClick={props.text}
+                              /> */}
+                        <Video/>
                         </div>
+                        
             </div>
             <FontAwesome className="fa-film" name="film" size="5x" />
         </div>
